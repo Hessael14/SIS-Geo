@@ -36,20 +36,60 @@ library(AER)
 library(readr)
 ```
 ```{r}
-url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Analisis/Municipal-Delitos-2015-2023_abr2023/2023.xlsx"
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2023.xlsx"
 Info2023 <- read_xlsx(url)
+url2 <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2022.xlsx"
+Info2022 <- read_xlsx(url)
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2021.xlsx"
+Info2021 <- read_xlsx(url)
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2020.xlsx"
+Info2020 <- read_xlsx(url)
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2019.xlsx"
+Info2019 <- read_xlsx(url)
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2018.xlsx"
+Info2018 <- read_xlsx(url)
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2017.xlsx"
+Info2017 <- read_xlsx(url)
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2016.xlsx"
+Info2016 <- read_xlsx(url)
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Incidencia Secretariado/2015.xlsx"
+Info2015 <- read_xlsx(url)
 ```
 ```{r}
 colnames(Info2023)
 ```
 
 ```{r}
-attach(Info2023)
+
+Info_Puebla2015 <- Info2015%>% filter(Entidad == "Puebla") 
+
+Info_Puebla2016 <- Info2016%>% filter(Entidad == "Puebla") 
+
+Info_Puebla2017 <- Info2017%>% filter(Entidad == "Puebla") 
+
+Info_Puebla2018 <- Info2018%>% filter(Entidad == "Puebla") 
+
+Info_Puebla2019 <- Info2019%>% filter(Entidad == "Puebla") 
+
+Info_Puebla2020 <- Info2020%>% filter(Entidad == "Puebla") 
+
+Info_Puebla2021 <- Info2021%>% filter(Entidad == "Puebla") 
+
+Info_Puebla2022 <- Info2022%>% filter(Entidad == "Puebla") 
+
 Info_Puebla2023 <- Info2023%>% filter(Entidad == "Puebla") 
 ```
 ```{r}
-Info_Puebla2023 %>% group_by(Info_Puebla2023$Municipio)
+data <- bind_rows(Info_Puebla2015,Info_Puebla2016,Info_Puebla2017,Info_Puebla2018,Info_Puebla2019,Info_Puebla2020,Info_Puebla2021,Info_Puebla2022,Info_Puebla2023)
+view(data)
+
 ```
+```{r}
+typeof(data)
+IncidenciaDelictiva <- as.data.frame(data)
+write.csv(IncidenciaDelictiva,"C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Bases de datos/IncidenciaDelictiva.csv", row.names=TRUE)
+```
+
 
 
 
