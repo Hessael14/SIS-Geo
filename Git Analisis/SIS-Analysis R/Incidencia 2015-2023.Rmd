@@ -1,0 +1,55 @@
+---
+title: "SIS Analisis"
+author: "Hessael López García"
+date: "2023-06-14"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(utf8)
+library(fdth)
+library(knitr)
+#install_github("ccolonescu/PoEdata")
+#tinytex::install_tinytex()
+library(latexpdf)
+library(xtable)
+library(shiny)
+library(bookdown)
+library(PoEdata)
+library(printr)
+library(stargazer)
+library(rmarkdown)
+library(readxl)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(devtools)
+library(broom)
+library(tseries)
+library(lmtest)
+library(AER)
+library(readr)
+```
+```{r}
+url <- "C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Analisis/Municipal-Delitos-2015-2023_abr2023/2023.xlsx"
+Info2023 <- read_xlsx(url)
+```
+```{r}
+colnames(Info2023)
+```
+
+```{r}
+attach(Info2023)
+Info_Puebla2023 <- Info2023%>% filter(Entidad == "Puebla") 
+```
+```{r}
+Info_Puebla2023 %>% group_by(Info_Puebla2023$Municipio)
+```
+
+
+
