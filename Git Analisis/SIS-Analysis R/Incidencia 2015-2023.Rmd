@@ -20,7 +20,7 @@ library(latexpdf)
 library(xtable)
 library(shiny)
 library(bookdown)
-library(PoEdata)
+#library(PoEdata)
 library(printr)
 library(stargazer)
 library(rmarkdown)
@@ -355,7 +355,7 @@ Oct_Abr <- bind_rows(Octubre2021,Noviembre2021,Enero2022,Febrero2022,Marzo2022,A
 ```
 ```{r}
 Oc_ab <- Oct_Abr %>% pivot_longer(cols = 3:26,
-                      names_to = "Tipo de servicio",
+                      names_to = "Tipo de Servicio",
                       values_to = "Atenciones")
 ```
 Unimos Oct-marzo con abril y mayo 2023
