@@ -367,5 +367,36 @@ ReportesAtencion <- bind_rows(Oc_ab,Abril2023,Mayo2023)
 write.csv(ReportesAtencion,"C:/Users/Usuario1/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Reportes de atencion/Bases de datos/ReportesAtencion",row.names=TRUE)
 ```
 
+# Violencia 2020-2022
+
+
+```{r}
+p1<- read_excel("C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Bases de datos/Violencia_Contra_las_Mujeres_2020-2022.xlsx", 
+     sheet = "1", col_types = c("numeric", 
+         "date", "text", "text", "text", "date", 
+         "text", "text", "text"))
+
+p2<- read_excel("C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Bases de datos/Violencia_Contra_las_Mujeres_2020-2022.xlsx", 
+     sheet = "2", col_types = c("numeric", 
+         "date", "text", "text", "text", "date", 
+         "text", "text", "text","text"))
+p3<- read_excel("C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Bases de datos/Violencia_Contra_las_Mujeres_2020-2022.xlsx", 
+     sheet = "3", col_types = c("numeric", 
+         "date", "text", "text", "text", "date", 
+         "text", "text", "text","text","text"))
+p4<- read_excel("C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Bases de datos/Violencia_Contra_las_Mujeres_2020-2022.xlsx", 
+     sheet = "4", col_types = c("numeric", 
+         "date", "text", "text", "text", "date", 
+         "text", "text", "text","text","text"))
+p5<- read_excel("C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Bases de datos/Violencia_Contra_las_Mujeres_2020-2022.xlsx", 
+     sheet = "5", col_types = c("numeric", 
+         "date", "text", "text", "text", "text", 
+         "text", "text", "text","text"))
+```
+Unimos hojas
+```{r}
+Violencia2020_2022 <- bind_rows(p1,p2,p3,p4,p5)
+write.csv(Violencia2020_2022,"C:/Users/52771/OneDrive - Benemérita Universidad Autónoma de Puebla/Análisis de Datos Primavera 2023/projects/SIS/SIS-Geo/Git Analisis/Incidencia Delictiva/Bases de datos/Violencia2020-2022", row.names = TRUE)
+```
 
 
